@@ -1,27 +1,32 @@
+alert("Vamos começar o jogo!");
 
-alert ("vamos começar o jogo?")
-
-//gerador de numeros aleatoros e suas variaveis
-var min = 0;
+// Gerador de números aleatórios e seus limites
+var min = 1;
 var max = 10;
 var numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
-//alert(`${numeroAleatorio}`)
-console.log (numeroAleatorio)
-alert (" vode deve tentar adivinhar um numero de 1 a 10, voce tem tres chances!")
 
-for (var n = 4, n !== 0, n - 1){
-    if (vidas > 0) {
-        var resposta = prompt ("qual o numero?")
-        if (resposta == numeroAleatorio) {
-            alert("parabens")
-            vidas = 0
-        } else {
-            var resposta = prompt ("tende denovo")
-        }
-        } else {
-            var restart = prompt(" digite 'sim' para jogar novamente")
-            if (restart == "sim") {
-            vidas = 3;
-        }
-    }
+console.log(numeroAleatorio);
+
+// Variáveis do jogo
+var acertou = false;
+
+alert("Você deve tentar adivinhar um número de 1 a 10. Você tem três chances!");
+
+for (var vidas = 0; vidas < 3; vidas++) {
+  var chute = parseInt(prompt("Qual é o número?"));
+  //mantendo numero numero como boa pratica
+
+  if (chute === numeroAleatorio) {
+    acertou = true;
+    break;
+  } else {
+    alert("Errou!");
+  }
 }
+
+if (acertou) {
+  alert("Parabéns, você acertou!");
+} else {
+  alert(`Não foi dessa vez... O número era ${numeroAleatorio}.`);
+}
+
